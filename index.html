@@ -22,6 +22,7 @@
         <div class="progress-bar-container">
             <div class="progress-bar"></div>
         </div>
+        <div id="map" class="gmap"></div>
 
 
         <script id="template-slide" type="x-tmpl-mustache">
@@ -40,30 +41,50 @@
         <script>
             const slidesData = [
                 {
+                    coords: {
+                        lat: 53.024253,
+                        lng: 18.573823
+                    },
                     id: "deer-bear",
                     title: "DEER BEAR",
                     description: "<p class=\"description\">Toruń</p>",
                     backgroundImageURL: "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/30725013_2122026904698379_1221960767427837952_o.jpg?_nc_cat=106&_nc_ht=scontent-frt3-2.xx&oh=6e4ff2453bfe184b15fdb119f8f06e18&oe=5D5C15C7"
                 },
                 {
+                    coords: {
+                        lat: 52.113805,
+                        lng: 20.047559
+                    },
                     id: "bednary",
                     title: "BEDNARY",
                     description: "<p class=\"description\">Bednary</p>",
                     backgroundImageURL: "https://scontent-frt3-2.xx.fbcdn.net/v/t31.0-8/17097620_1263743497041171_3362428555247966067_o.jpg?_nc_cat=110&_nc_ht=scontent-frt3-2.xx&oh=c8471a0e2e6f701d1a3a101ff5062c56&oe=5D709FFB"
                 },
                 {
+                    coords: {
+                        lat: 50.004386,
+                        lng: 20.930105
+                    },
                     id: "trzech-kumpli",
                     title: "TRZECH KUMPLI",
                     description: "<p class=\"description\">Tarnów</p>",
                     backgroundImageURL: "https://scontent-frt3-2.xx.fbcdn.net/v/t31.0-8/17834402_871977472951103_4908617695231169193_o.jpg?_nc_cat=104&_nc_ht=scontent-frt3-2.xx&oh=d27a6fb8301813b66f65a05ee7d25885&oe=5D6F7F81"
                 },
                 {
+                    coords: {
+                        lat: 49.782827,
+                        lng: 20.189160
+                    },
                     id: "piwowarownia",
                     title: "PIWO WAROWNIA",
                     description: "<p class=\"description\">Wrocław</p>",
                     backgroundImageURL: "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/13532977_585330614979678_4466541316026626970_n.png?_nc_cat=104&_nc_ht=scontent-frt3-2.xx&oh=059bf3330cc8299e96a30b28ef9b588b&oe=5D70E306"
                 },
                 {
+                    coords: {
+                        lat: 51.109729,
+                        lng: 17.023208
+                    },
                     id: "alebrowar",
                     title: "ALEBROWAR",
                     description: "<p class=\"description\">Szczyrzyc</p>",
@@ -76,6 +97,7 @@
         <script src="vendor/hash.js"></script>
         <script src="vendor/mustache.min.js"></script>
         <script src="js/script.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBK_NrPw6vGlFjut3V4ZXrMGks9kiA27eM&callback=initMap"></script>
     </body>
 
 </html>
