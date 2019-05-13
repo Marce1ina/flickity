@@ -1,5 +1,15 @@
 const resetBtn = document.querySelector(".reset-btn");
 const progressBar = document.querySelector(".progress-bar");
+const carouselWrapper = document.getElementById("carousel-wrapper");
+const slideTemplate = document.getElementById('template-slide').innerHTML;
+Mustache.parse(slideTemplate);
+
+slidesData.forEach(slideData => {
+    carouselWrapper.insertAdjacentHTML(
+        'beforeend',
+        Mustache.render(slideTemplate, slideData)
+    );
+});
 
 const carousel = new Flickity('.main-carousel', {
     hash: true,
