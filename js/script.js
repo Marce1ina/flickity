@@ -32,10 +32,6 @@ const resetSlides = () => {
 };
 
 const adjustProgressBarWidth = progress => {
-    const currentSlideIndex = carousel.selectedIndex;
-    const slidesCount = carousel.slides.length;
-    progressBar.style.width = currentSlideIndex / (slidesCount - 1) * 100 + "%";
-
     progressBar.style.width = progress * 100 + "%";
 }
 
