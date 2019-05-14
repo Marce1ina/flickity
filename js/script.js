@@ -1,4 +1,5 @@
 let carousel;
+let map;
 const progressBar = document.querySelector(".progress-bar");
 
 const renderSlides = () => {
@@ -35,6 +36,12 @@ const adjustProgressBarWidth = progress => {
     progressBar.style.width = progress * 100 + "%";
 }
 
+const getCurrentSlideCoords = () => (
+    slidesData.find(
+        slideData => slideData.id === carousel.selectedElement.id
+    ).coords
+);
+
 const initialize = (() => {
     renderSlides();
 
@@ -43,12 +50,10 @@ const initialize = (() => {
     document.querySelector(".reset-btn").addEventListener("click", resetSlides);
 
     window.initMap = () => {
-        const map = new google.maps.Map(
+        map = new google.maps.Map(
           document.getElementById('map'), {
-                zoom: 10,
-                center: slidesData.find(
-                    slideData => slideData.id === carousel.selectedElement.id
-                ).coords
+                zoom: 11,
+                center: getCurrentSlideCoords()
             }
         );
 
@@ -56,11 +61,17 @@ const initialize = (() => {
             new google.maps.Marker({
                 position: slideData.coords,
                 map: map
+            }).addListener("click", function() {
+                carousel.selectCell(`#${slideData.id}`)
             });
         });
     }
 
     carousel.on('scroll', function (progress) {
         adjustProgressBarWidth(progress);
+    });
+
+    carousel.on('select', function (progress) {
+        map.panTo(getCurrentSlideCoords());
     });
 })();
